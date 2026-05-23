@@ -30,7 +30,7 @@ userid=$(id -u) # <-- Added this to get the current user ID
 
 CHECK_ROOT
  mkdir -p "$LOGS_FOLDER"
- sudo dnf install -y https://mysql.com 
+ sudo dnf install -y mysql
  VALIDATE $? "installing mysql server" 
 
  systemctl enable mysqld  
