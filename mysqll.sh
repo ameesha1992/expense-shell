@@ -30,15 +30,15 @@ userid=$(id -u) # <-- Added this to get the current user ID
 
 CHECK_ROOT
  mkdir -p "$LOGS_FOLDER"
- dnf install mysql-server -y &>>$LOG_FILE
+ dnf install mysql-server -y 
  VALIDATE $? "installing mysql server" 
 
- systemctl enable mysqld  &>>$LOG_FILE
+ systemctl enable mysqld  
  VALIDATE $? "enabling mysql server"
 
- systemctl start mysqld  &>>$LOG_FILE
+ systemctl start mysqld  
  VALIDATE $? "starting mysql server"
  
- mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'expenseapp@1'; FLUSH PRIVILEGES;" &>>"$LOG_FILE"
+ mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'expenseapp@1'
  VALIDATE $? "Configuring secure root password"
 
