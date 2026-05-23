@@ -25,14 +25,14 @@ mkdir -p $LOGS_FOLDER
 
 CHECK_ROOT
 
- dnf install mysql -y &>> $LOG_FILE
+ dnf install mysql -y &>>$LOG_FILE
  VALIDATE $? "installing mysql server" 
 
- systemctl enable mysql -y &>> $LOG_FILE
+ systemctl enable mysql -y &>>$LOG_FILE
  VALIDATE $? "enabling mysql server"
 
- systemctl start mysql -y &>> $LOG_FILE
+ systemctl start mysql -y &>>$LOG_FILE
  VALIDATE $? "starting mysql server"
 
- mysql_secure_installation --set-root-pass expenseapp@1 &>> $LOG_FILE
+ mysql_secure_installation --set-root-pass expenseapp@1 &>>$LOG_FILE
  VALIDATE $? "setting root_password"
