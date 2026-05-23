@@ -1,11 +1,12 @@
 #!/bin/bash
 
-#!/bin/bash
+
 LOGS_FOLDER="/var/log/expense-shell/"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1) 
 TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
-sudo mkdir -p $LOGS_FOLDER
+userid=$(id -u) # <-- Added this to get the current user ID
+sudo mkdir -p "$LOGS_FOLDER"
 
  CHECK_ROOT(){
   if [ $userid -ne 0 ]
@@ -32,10 +33,10 @@ CHECK_ROOT
  dnf install mysql -y &>>$LOG_FILE
  VALIDATE $? "installing mysql server" 
 
- systemctl enable mysql -y &>>$LOG_FILE
+ systemctl enable mysql  &>>$LOG_FILE
  VALIDATE $? "enabling mysql server"
 
- systemctl start mysql -y &>>$LOG_FILE
+ systemctl start mysql  &>>$LOG_FILE
  VALIDATE $? "starting mysql server"
 
  mysql_secure_installation --set-root-pass expenseapp@1 &>>$LOG_FILE
