@@ -21,6 +21,7 @@ sudo mkdir -p $LOGS_FOLDER
     echo "$2 is failed.." |tee -a $LOG_FILE
     exit 1
     echo "$2 is success.." |tee -a $LOG_FILE
+    fi
   } 
 
 CHECK_ROOT
