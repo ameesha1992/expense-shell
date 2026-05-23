@@ -31,7 +31,7 @@ sudo mkdir -p "$LOGS_FOLDER"
 CHECK_ROOT
 
  dnf install mysql-server -y &>>$LOG_FILE
- VALIDATE $? "installing mysql-server" 
+ VALIDATE $? "installing mysql server" 
 
  systemctl enable mysqld-server  &>>$LOG_FILE
  VALIDATE $? "enabling mysql server"
