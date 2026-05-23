@@ -18,9 +18,9 @@ sudo mkdir -p $LOGS_FOLDER
   VALIDATE(){
     if [$1 -ne 0]
     then
-    echo "$2 is failed.." |tee -a $LOG_FILE
-    exit 1
-    echo "$2 is success.." |tee -a $LOG_FILE
+       echo "$2 is failed.."|tee -a $LOG_FILE
+       exit 1
+       echo "$2 is success.."|tee -a $LOG_FILE
     fi
   } 
 
