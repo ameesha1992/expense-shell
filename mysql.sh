@@ -8,12 +8,14 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIME_STAMP.log"
 sudo mkdir -p $LOGS_FOLDER
 
  CHECK_ROOT(){
-  if [$userid -ne 0]
+  if [ $userid -ne 0 ]
   then
-  echo "please run this script with root previlages"|tee -a $LOG_FILE
-  exit 1
+    echo "please run this script with root previlages"|tee -a $LOG_FILE
+    exit 1
+  else
+    echo "the script was already in root.." | tee -a $LOG_FILE
   fi
-   }
+  }
 
   VALIDATE(){
     if [ $1 -ne 0 ]
