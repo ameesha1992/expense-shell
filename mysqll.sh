@@ -30,14 +30,14 @@ sudo mkdir -p "$LOGS_FOLDER"
 
 CHECK_ROOT
 
- dnf install mysql -y &>>$LOG_FILE
- VALIDATE $? "installing mysql server" 
+ dnf install mysql-server -y &>>$LOG_FILE
+ VALIDATE $? "installing mysql-server" 
 
- systemctl enable mysql  &>>$LOG_FILE
+ systemctl enable mysqld-server  &>>$LOG_FILE
  VALIDATE $? "enabling mysql server"
 
- systemctl start mysql  &>>$LOG_FILE
+ systemctl start mysqld-server  &>>$LOG_FILE
  VALIDATE $? "starting mysql server"
-
+ 
  mysql_secure_installation --set-root-pass expenseapp@1 &>>$LOG_FILE
  VALIDATE $? "setting root_password"
