@@ -30,7 +30,7 @@ userid=$(id -u) # <-- Added this to get the current user ID
 
 CHECK_ROOT
  mkdir -p "$LOGS_FOLDER"
- sudo dnf install -y mysql-server
+ dnf install mysql-server -y
  VALIDATE $? "installing mysql server" 
 
  systemctl enable mysqld  
@@ -38,7 +38,11 @@ CHECK_ROOT
 
  systemctl start mysqld  
  VALIDATE $? "starting mysql server"
- 
- mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'expenseapp@1'
- VALIDATE $? "Configuring secure root password"
 
+#  mysql -h amisha.site -u root -pexpenseapp@1 -e "show databases"
+#  if [$? ne 0]
+#  then
+#  echo "mysql root password not setup try to set"
+#   else
+#   echo "mysql root had already setup..skipping"
+#   fi
