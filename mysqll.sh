@@ -29,9 +29,9 @@ userid=$(id -u) # <-- Added this to get the current user ID
   } 
 
 CHECK_ROOT
- mkdir -p "$LOGS_FOLDER"
- yum install mysql -y
- VALIDATE $? "installing mysql server" 
+ mkdir -p "$LOGS_FOLDER
+ dnf install mysql-server -y
+ VALIDATE $? "installing mysql-server" 
 
  systemctl enable mysqld  
  VALIDATE $? "enabling mysql server"
