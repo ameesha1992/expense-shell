@@ -29,7 +29,6 @@ userid=$(id -u) # <-- Added this to get the current user ID
   } 
 
 CHECK_ROOT
- mkdir -p "$LOGS_FOLDER
  dnf install mysql-server -y
  VALIDATE $? "installing mysql-server" 
 
