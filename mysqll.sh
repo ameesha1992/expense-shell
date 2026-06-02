@@ -18,19 +18,19 @@ userid=$(id -u) # <-- Added this to get the current user ID
   fi
   }
 
-  VALIDATE(){
-    if [ $1 -ne 0 ]
-    then
-       echo "$2 is failed.." | tee -a $LOG_FILE
-       exit 1
-    else
-       echo "$2 is success.." | tee -a $LOG_FILE
-    fi
-  } 
-
+  # VALIDATE(){
+  #   if [ $1 -ne 0 ]
+  #   then
+  #      echo "$2 is failed.." | tee -a $LOG_FILE
+  #      exit 1
+  #   else
+  #      echo "$2 is success.." | tee -a $LOG_FILE
+  #   fi
+  # }
 CHECK_ROOT
- dnf install mysql-server8.0 -y
- VALIDATE $? "installing mysql-server" 
+
+ dnf install mysql-server -y
+ #VALIDATE $? "installing mysql-server" 
 
  systemctl enable mysqld  
  VALIDATE $? "enabling mysql server"
