@@ -29,7 +29,7 @@ userid=$(id -u) # <-- Added this to get the current user ID
   } 
 
 CHECK_ROOT
- dnf install mysql-server -y
+ dnf install mysql-server8.0 -y
  VALIDATE $? "installing mysql-server" 
 
  systemctl enable mysqld  
