@@ -43,10 +43,10 @@ VALIDATE $? "Enabled MySQL Server"
 systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "Started MySQL server"
 
-#  mysql -h amisha.site -u root -pexpenseapp@1 -e "show databases"
-#  if [$? ne 0]
-#  then
-#   echo "mysql root password not setup try to set"
-#  else
-#   echo "mysql root had already setup..skipping"
-#  fi
+mysql -h amisha.site -u root -pexpenseapp@1 -e "show databases"
+ if [$? ne 0]
+ then
+  echo "mysql root password not setup try to set"
+ else
+  echo "mysql root had already setup..skipping"
+  fi

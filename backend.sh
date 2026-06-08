@@ -18,3 +18,5 @@ userid=$(id -u) # <-- Added this to get the current user ID
   fi
   }
   echo "script started executing at $(date)" | tee-a $LOG_FILE
+
+  
