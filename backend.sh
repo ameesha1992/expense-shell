@@ -17,6 +17,6 @@ userid=$(id -u) # <-- Added this to get the current user ID
     echo "the script was already in root.." | tee -a $LOG_FILE
   fi
   }
-  echo "script started executing at $(date)" | tee-a $LOG_FILE
+  echo "script started executing at $(date)" | tee -a $LOG_FILE
 
   
